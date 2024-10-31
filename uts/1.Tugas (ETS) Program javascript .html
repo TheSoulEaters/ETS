@@ -1,23 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Triangle Matrix Pattern</h2>
-    <div id="Matrix"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Pattern</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+      .container {
+        text-align: center;
+        margin: 20px;
+      }
+      input {
+        margin: 10px 0;
+        padding: 5px;
+      }
+      button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      pre {
+        white-space: pre-wrap;
+        margin-top: 20px;
+        background-color: #f4f4f4;
+        padding: 10px;
+        border: 1px solid #ccc; 
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Generate Pattern</h1>
+      <label for="n">Masukkan nilai n:</label>
+      <input type="number" id="n" min="1" required />
+      <br />
+      <button onclick="generatePattern()">Generate</button>
+
+      <h2>Hasil:</h2>
+      <pre id="hasil"></pre>
+    </div>
 
     <script>
-      //
-      function name(params) {
-        
-      } 
+      function generatePattern() {
+        const n = parseInt(document.getElementById("n").value);
+        let output = "";
+
+        for (let i = 1; i <= n; i++) {
+          let row = "";
+          for (let j = 1; j <= n; j++) {
+            row += (j <= i ? j : 0) + " ";
+          }
+          output += row.trim() + "\n";
+        }
+
+        document.getElementById("hasil").textContent = output.trim();
+      }
     </script>
-</body>
-</html>
-//
-function name(params) {
-    
-}
+  </body>
+</html> 
